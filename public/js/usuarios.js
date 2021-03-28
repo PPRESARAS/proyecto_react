@@ -1,12 +1,4 @@
-$.ajax({
-    url: 'https://randomuser.me/api/',
-    dataType: 'json',
-    success: function(data) {
-      console.log(data);
-    }
-});
-
-fetch (user)
+fetch ("https://randomuser.me/api/?results=6")
     .then(function(response){
         return response.json();
     })
@@ -15,10 +7,10 @@ fetch (user)
         console.log(datos.data);
         
         let users = datos.data;
-        let lista = document.querySelector (".datos");
+        let lista = document.querySelector (".cuerpo");
 
         for (let i=1; i<users.length; i++){
-            lista.innerHTML += '<li class="profile">' + '<img class="fotoGenero" src="' + users[i].picture.medium + '">' + '</div>' + '<h3 class="genreTitle">' + users[i].name + '</h3>' + '</li>' ;
+            lista.innerHTML += '<ul class="tarjetas">' + '<li class="tarjeta">' + '<ul class="datos">'+'<li class="profile">' + '<img class="profilefoto" src="' + users[i].picture.medium + '">' + '</li>' + '<li>' + users[i].name + '</li>' + '</li>' + '</ul>' + '</li>' + '</ul>' ;
         }
 
     })
