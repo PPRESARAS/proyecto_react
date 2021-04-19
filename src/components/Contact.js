@@ -5,11 +5,11 @@ function Contact() {
         <li class="tarjeta">
                 <ul class="datos">
                     <li class="profile"><img src="./images/logo.png" alt='profile' class="profilefoto"></img></li>
-                    <li>Nombre</li>
-                    <li>Apellido</li>
-                    <li>Email</li>
-                    <li>Fecha de Nacimiento</li>
-                    <li>(Edad)</li>
+                    <li>Nombre:</li>
+                    <li>Apellido:</li>
+                    <li>Email:</li>
+                    <li>Fecha de Nacimiento:</li>
+                    <li>(Edad:)</li>
                     <button type="button" class="collapsible">Ver mas +</button>
                             <div class="content">
                                 <ul>
@@ -21,6 +21,7 @@ function Contact() {
                                   <li class="collapsibleLi">Teléfono:</li>
                                 </ul>
                             </div>
+                    <button class="botonBorrar"><i class="fas fa-user-times"></i>Eliminar contacto</button>
                 </ul>
         </li>
     )

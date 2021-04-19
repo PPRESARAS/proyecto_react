@@ -46,12 +46,6 @@ html, body {
     margin-top: 1%;
   }
   
-  /* Change the color of links on hover */
-  .topnavRight a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-  
   
   /* Style the search box inside the navigation bar */
   .topnavRight input[type=text] {
@@ -74,8 +68,8 @@ html, body {
   width: 35%;
 }
 .topnavRight{
-  width: 50%;
-  margin-left: 20%;
+  width: 35%;
+  margin-left: 40%;
 }
 
   /* When the screen is less than 600px wide, stack the links and the search field vertically instead of horizontally */
@@ -160,7 +154,6 @@ html, body {
   margin-left: 1%;
 }
 
-/* Style the button that is used to open and close the collapsible content */
 .collapsible {
   background-color: royalblue;
   color: white;
@@ -173,12 +166,7 @@ html, body {
   font-size: 15px;
 }
 
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
 
-/* Style the collapsible content. Note: hidden by default */
 .content {
   padding: 0 18px;
   display: none;
@@ -188,4 +176,20 @@ html, body {
 }
 .collapsibleLi {
   list-style-type: none;
+}
+
+.botonBorrar {
+  background-color: royalblue;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 65%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  margin-top: 1%;
+}
+i{
+  margin-right: 3px;
 }
