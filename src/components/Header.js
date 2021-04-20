@@ -11,6 +11,6 @@ function Header() {
             <Navbarright/>
         
         </header>
-    )
+    );
 }
 export default Header

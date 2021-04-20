@@ -5,11 +5,13 @@ import Footer from "./components/Footer.js"
 
 
 function App() {
-    <div className= 'contenrWrapper'>
-        <Header/>
-        <Body/>
-        <Footer/>
-    </div>
+    return(
+        <React.Fragment>
+            <Header/>
+            <Body/>
+            <Footer/>
+        </React.Fragment>
+    );
 }
 
 

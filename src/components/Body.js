@@ -8,11 +8,13 @@ function Body(){
     return(
         <div className='cuerpo'>
             <ul className="tarjetas">
-                <Contact/>
-                <Contact/>
-                <Contact/>
-                <Contact/>
-                <Contact/>
+                {
+                    arrayPersonas.map(function (persona, idx){
+                    return(
+                        <Contact datosPersona={persona} key={idx}/>
+                        );
+                    })
+                }
             </ul>
         </div>
     )
