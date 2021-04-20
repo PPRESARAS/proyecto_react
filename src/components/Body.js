@@ -7,7 +7,7 @@ import arrayPersonas from '../personas.json'
 function Body(){
     return(
         <div className='cuerpo'>
-            <ul className="tarjetas">
+            <div className="tarjetas">
                 {
                     arrayPersonas.map(function (persona, idx){
                     return(
@@ -15,7 +15,7 @@ function Body(){
                         );
                     })
                 }
-            </ul>
+            </div>
         </div>
     )
 }
