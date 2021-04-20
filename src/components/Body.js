@@ -1,20 +1,12 @@
 import React from 'react';
-import Contact from "../components/Contact";
-import fs from "fs";
-import arrayPersonas from '../personas.json'
+import ContactContainer from "../components/ContactContainer";
 
 
 function Body(){
     return(
         <div className='cuerpo'>
             <div className="tarjetas">
-                {
-                    arrayPersonas.map(function (persona, idx){
-                    return(
-                        <Contact datosPersona={persona} key={idx}/>
-                        );
-                    })
-                }
+                <ContactContainer />
             </div>
         </div>
     )
