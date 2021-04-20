@@ -1,7 +1,7 @@
 import React from 'react';
 import Contact from "../components/Contact";
 import fs from "fs";
-const arrayPersonas = fs.readFileSync("../personas.json")
+import arrayPersonas from '../personas.json'
 
 
 function Body(){
