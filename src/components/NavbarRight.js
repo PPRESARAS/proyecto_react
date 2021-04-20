@@ -1,11 +1,12 @@
 import React from 'react';
-import ItemMenu from "../components/ItemMenu"
+import Item from "./Item"
 
 function NavbarRight(){
     return(
-        <div class="topnavRight">
+        <div className="topnavRight">
             <ul>
-                <ItemMenu/>
+                <Item logo="fas fa-filter" title="Filtros"/>
+                <Item logo="fas fa-user-plus" title="Agregar contactos"/>
             </ul>
         </div>
     )

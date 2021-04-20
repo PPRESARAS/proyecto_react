@@ -1,27 +1,27 @@
 import React from 'react';
 
-function Contact() {
+function Contact(props) {
     return(
-        <li class="tarjeta">
-                <ul class="datos">
-                    <li class="profile"><img src="./images/logo.png" alt='profile' class="profilefoto"></img></li>
-                    <li>Nombre:</li>
-                    <li>Apellido:</li>
-                    <li>Email:</li>
-                    <li>Fecha de Nacimiento:</li>
-                    <li>(Edad:)</li>
-                    <button type="button" class="collapsible">Ver mas +</button>
-                            <div class="content">
+        <li className="tarjeta">
+                <ul className="datos">
+                    <li className="profile"><img src={props.image} alt='profile' className="profilefoto"/></li>
+                    <li>Nombre: {props.name}</li>
+                    <li>Apellido: {props.surname}</li>
+                    <li>Email:{props.email}</li>
+                    <li>Fecha de Nacimiento: {props.birthday}</li>
+                    <li>(Edad: {props.age})</li>
+                    <button type="button" className="collapsible">Ver mas +</button>
+                            <div className="content">
                                 <ul>
-                                  <li class="collapsibleLi">Calle y Número:</li>
-                                  <li class="collapsibleLi">Ciudad/Estado:</li>
-                                  <li class="collapsibleLi">País:</li>
-                                  <li class="collapsibleLi">Código postal:</li>
-                                  <li class="collapsibleLi">Fecha de Registro:</li>
-                                  <li class="collapsibleLi">Teléfono:</li>
+                                  <li className="collapsibleLi">Calle y Número: {props.address}</li>
+                                  <li className="collapsibleLi">Ciudad/Estado:{props.city}</li>
+                                  <li className="collapsibleLi">País:{props.country}</li>
+                                  <li className="collapsibleLi">Código postal:{props.postalCode}</li>
+                                  <li className="collapsibleLi">Fecha de Registro:{props.registerDay}</li>
+                                  <li className="collapsibleLi">Teléfono:{props.phone}</li>
                                 </ul>
                             </div>
-                    <button class="botonBorrar"><i class="fas fa-user-times"></i>Eliminar contacto</button>
+                    <button className="botonBorrar"><i className="fas fa-user-times"></i>Eliminar contacto</button>
                 </ul>
         </li>
     )

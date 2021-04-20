@@ -3,8 +3,8 @@ import Contact from "../components/Contact"
 
 function Body(){
     return(
-        <div class='cuerpo'>
-            <ul class="tarjetas">
+        <div className='cuerpo'>
+            <ul className="tarjetas">
                 <Contact/>
                 <Contact/>
                 <Contact/>

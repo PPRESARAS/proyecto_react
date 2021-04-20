@@ -4,7 +4,7 @@ import Navbarright from "../components/NavbarRight"
 
 function Header() {
     return(
-        <header class='header'>
+        <header className='header'>
 
             <Navbarleft/>
         

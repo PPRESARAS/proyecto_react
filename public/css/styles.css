@@ -44,6 +44,10 @@ html, body {
     text-decoration: none;
     font-size: 17px;
     margin-top: 1%;
+    background-color: ghostwhite;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    border-left: royalblue 5px solid;
   }
   
   
