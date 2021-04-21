@@ -143,14 +143,15 @@ html, body {
   height: 80%;
   width: 20%;
   background-color: snow;
-  border-radius: 70px;
+  border-radius: 1;
   margin: 10px;
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0px;
+ 
 }
 
 .datos{
@@ -160,6 +161,7 @@ html, body {
   list-style: none;
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   padding: 0px;
@@ -204,8 +206,6 @@ html, body {
   font-size: 15px;
   margin: 1%;
   border-radius: 20px;
-  
-  
 }
 
 .botones{
@@ -215,7 +215,7 @@ html, body {
 }
 
 .content {
-  padding: 0 18px;
+  padding: 18px;
   display: none;
   overflow: hidden;
   background-color: #f1f1f1;
@@ -234,12 +234,11 @@ html, body {
   width: 60%;
   border: none;
   text-align: center;
-  outline: none;
   font-size: 15px;
   margin: 5%;
   border-radius: 20px;
-
 }
+  
 i{
   margin-right: 3px;
 }
