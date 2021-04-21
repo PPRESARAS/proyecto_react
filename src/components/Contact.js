@@ -1,28 +1,56 @@
 import React from 'react';
+import Colapsable from './Colapsable.js';
+import {Component} from "react";
+import { getByDisplayValue } from '@testing-library/dom';
 
-function Contact(props) {
+
+export default class ContactContainer extends Component  {
+
+    constructor(){
+        super();
+        this.state = {
+            item: [],
+            display: 'none',
+        }
+    }
+
+    componentDidMount(){ 
+        fetch("https://randomuser.me/api/?results=10")
+        .then(resource => resource.json())
+        .then(data=> {
+            this.setState({item: data.results});
+            console.log(this.state.item)
+        }) }
+
+   AbrirColapsible(item){ 
+       this.state.items.push({})
+   }
+
+    render(item){
     return(
         <React.Fragment>
-
-            <li className="profile"><img src={props.datosPersona.image} alt='profile' className="profilefoto"/></li>
-            <li>Nombre: {props.datosPersona.name}</li>
-            <li>Apellido: {props.datosPersona.surname}</li>
-            <li>Email:{props.datosPersona.email}</li>
-            <li>Fecha de Nacimiento: {props.datosPersona.birthday}</li>
-            <li>(Edad: {props.datosPersona.age})</li>
+            <div className='tarjeta'>
+            <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
+            <li>Nombre: {this.props.name}</li>
+            <li>Apellido: {this.props.surname}</li>
+            <li>Email:{this.props.email}</li>
+            <li>Fecha de Nacimiento: {this.props.birthday}</li>
+            <li>(Edad: {this.props.age})</li>
+            <div className='botones'> 
                 <button type="button" className="collapsible">Ver mas +</button>
-                         <div className="content">
-                             <ul>
-                                <li className="collapsibleLi">Calle y Número: {props.datosPersona.address}</li>
-                                <li className="collapsibleLi">Ciudad/Estado:{props.datosPersona.city}</li>
-                                <li className="collapsibleLi">País:{props.datosPersona.country}</li>
-                                <li className="collapsibleLi">Código postal:{props.datosPersona.postalCode}</li>
-                                <li className="collapsibleLi">Fecha de Registro:{props.datosPersona.registerDay}</li>
-                                <li className="collapsibleLi">Teléfono:{props.datosPersona.phone}</li>
-                            </ul>
-                         </div>
-            <button className="botonBorrar"><i className="fas fa-user-times"></i>Eliminar contacto</button>
+                <Colapsable className='content' style= {this.state.display} />
+                <script src="./js/collapse.js"></script>   
+                <button className="botonBorrar" >Eliminar<i className="fas fa-trash"></i></button></div>
+            
+
+
+
+            
+            </div>
+        
         </React.Fragment>
-    )
+    )}
 }
-export default Contact
+
+
+// adress={item.location.street.name + item.location.street.number} city={ item.location.city} country={ item.location.country}  postalCode={item.location.postcode} registerDay= {item.registered.date} phone={ item.phone}

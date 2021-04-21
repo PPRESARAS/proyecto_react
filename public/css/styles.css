@@ -25,7 +25,7 @@ html, body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    height: 8%;
+    height: 5%;
     display: flex;
     overflow: hidden;
 }
@@ -80,6 +80,20 @@ html, body {
   
 .topnavLeft{
   width: 35%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start ;
+}
+
+.logolink{
+  width: 30%;
+  margin: 1%
+}
+
+.titulo{
+  width: 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 300%;
 }
 .topnavRight{
   width: 35%;
@@ -106,29 +120,37 @@ html, body {
   height: 80%;
   background-color: slategrey;
   display: flex;
-  align-items: center;
   justify-content: center;
 
 
 }
-
-.tarjetas{
-  height: 100%;
+.contenedorTarjetas{
   width: 100%;
-  background-color: slategrey;
   display: flex;
-  align-items: center;
+  
+  flex-wrap: wrap;
   justify-content: center;
-  list-style: none;
-  margin-top: 8%;
-  margin-right: 2%;
+
 }
+
+.ADD{
+  width: 200px;
+  height: 100px;
+  background-color: seashell;
+}
+
 .tarjeta{
   height: 80%;
   width: 20%;
   background-color: snow;
   border-radius: 70px;
   margin: 10px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
 }
 
 .datos{
@@ -141,6 +163,7 @@ html, body {
   align-items: center;
   justify-content: center;
   padding: 0px;
+  background-color: seashell;
 }
 
 .profile{
@@ -155,12 +178,12 @@ html, body {
 }
 
 .footer{
-  height: 11%;
+  height: 5%;
   background-image: url(https://images.unsplash.com/photo-1574093390315-5b900df0ca3a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1057&q=80);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  margin-top: 3%;
+  
 }
 .autores{
   font-size: 114%;
@@ -168,18 +191,28 @@ html, body {
   margin-left: 1%;
 }
 
-button.collapsible {
+.collapsible {
   background-color: royalblue;
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: 42%;
+  height: 20%;
+  width: 60%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
+  margin: 1%;
+  border-radius: 20px;
+  
+  
 }
 
+.botones{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 .content {
   padding: 0 18px;
@@ -193,17 +226,26 @@ button.collapsible {
 }
 
 .botonBorrar {
-  background-color: royalblue;
+  background-color: rgb(225, 65, 65);
   color: white;
   cursor: pointer;
   padding: 18px;
-  width: 65%;
+  height: 20%;
+  width: 60%;
   border: none;
-  text-align: left;
+  text-align: center;
   outline: none;
   font-size: 15px;
-  margin-top: 1%;
+  margin: 5%;
+  border-radius: 20px;
+
 }
 i{
   margin-right: 3px;
 }
+
+
+
+
+
+
