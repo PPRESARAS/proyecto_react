@@ -6,11 +6,12 @@ import { getByDisplayValue } from '@testing-library/dom';
 
 export default class ContactContainer extends Component  {
 
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
         this.state = {
             item: [],
             display: 'none',
+            colorFondo: "white",
         }
     }
 
@@ -22,14 +23,31 @@ export default class ContactContainer extends Component  {
             console.log(this.state.item)
         }) }
 
-   AbrirColapsible(item){ 
-       this.state.items.push({})
-   }
+    AbrirColapsible(item){ 
+        this.state.items.push({})
+    }
+
+    MouseEnter = () => {
+        if(this.state.colorFondo==="white")
+            this.setState({colorFondo:"lightblue"})
+    }
+
+    MouseLeave = () => {
+        if(this.state.colorFondo==="lightblue")
+            this.setState({colorFondo:"white"})
+    }
+
+    BorrarTarjeta = (displayNuevo) => {
+        this.setState({display: displayNuevo})
+    }
 
     render(item){
     return(
         <React.Fragment>
-            <div className='tarjeta'>
+            <div className='tarjeta' style = {{ backgroundColor: this.state.colorFondo }} 
+            onMouseEnter = {this.MouseEnter.bind(this, "grey")} 
+            onMouseLeave = {this.MouseLeave.bind(this, "white")}>
+
             <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
             <li>Nombre: {this.props.name}</li>
             <li>Apellido: {this.props.surname}</li>
@@ -40,8 +58,8 @@ export default class ContactContainer extends Component  {
                 <button type="button" className="collapsible">Ver mas +</button>
                 <Colapsable className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
-                <button className="botonBorrar" >Eliminar<i className="fas fa-trash"></i></button></div>
-            
+                <button className="botonBorrar" onClick = {this.BorrarTarjeta.bind(this, 'none')}>Eliminar<i className="fas fa-trash"></i></button>
+            </div>
 
 
 
