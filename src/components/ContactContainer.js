@@ -4,7 +4,6 @@ import fs from "fs";
 import arrayPersonas from '../personas.json';
 import Contact from './Contact.js';
 
-
 export default class ContactContainer extends Component  {
     constructor(){
         super();
@@ -37,7 +36,7 @@ export default class ContactContainer extends Component  {
                   
             </div>
         </React.Fragment>
-    
+     
     )
     }
 }

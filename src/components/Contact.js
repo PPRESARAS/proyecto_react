@@ -1,5 +1,6 @@
 import React from 'react';
 import Colapsable from './Colapsable.js';
+import Borrar from './Borrar.js';
 import {Component} from "react";
 import { getByDisplayValue } from '@testing-library/dom';
 
@@ -37,11 +38,13 @@ export default class ContactContainer extends Component  {
             this.setState({colorFondo:"white"})
     }
 
-    BorrarTarjeta = (displayNuevo) => {
-        this.setState({display: displayNuevo})
-    }
+    // BorrarTarjeta(idTarjeta) {
+    //     this.setState((prevState) => ({
+    //         items: prevState.items.filter(item => item.idTarjeta !== idTarjeta),
+    //       }))
+    // }
 
-    render(item){
+    render(){
     return(
         <React.Fragment>
             <div className='tarjeta' style = {{ backgroundColor: this.state.colorFondo }} 
@@ -58,7 +61,8 @@ export default class ContactContainer extends Component  {
                 <button type="button" className="collapsible">Ver mas +</button>
                 <Colapsable className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
-                <button className="botonBorrar" onClick = {this.BorrarTarjeta.bind(this, 'none')}>Eliminar<i className="fas fa-trash"></i></button>
+                <Borrar />
+                
             </div>
 
 
