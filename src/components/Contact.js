@@ -10,7 +10,6 @@ export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
         this.state = {
-            // contador: 1,
             item: [],
             display: 'none',
             colorFondo: "white",
@@ -38,11 +37,6 @@ export default class ContactContainer extends Component  {
         if(this.state.colorFondo==="lightblue")
             this.setState({colorFondo:"white"})
     }
-
-    // AgregarTarjeta(){ 
-    //     this.state.items.push({id: this.state.contador})
-    //     this.setState({contador: this.state.contador + 1, items: this.state.items[Math.floor(Math.random()*this.state.items.length)]})
-    // }
 
     BorrarTarjeta(idItem) {
        console.log("Tarjeta a borrar:" + idItem);

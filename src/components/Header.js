@@ -11,8 +11,6 @@ function Header() {
                 <h1 className='titulo'>Contact cards</h1>
             </div>
         
-            <Navbarright/>
-        
         </header>
     );
 }
