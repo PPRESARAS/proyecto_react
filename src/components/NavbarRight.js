@@ -19,7 +19,7 @@ function NavbarRight(){
                 {
                     datosItem.map(function(unDato, idx){
                         return(
-                        <li className="navLi" key={ idx } >
+                        <li className="navLi" key={ idx }>
                             <Item dato={unDato} />
                         </li>
                         )

@@ -10,6 +10,7 @@ export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
         this.state = {
+            // contador: 1,
             item: [],
             display: 'none',
             colorFondo: "white",
@@ -38,11 +39,18 @@ export default class ContactContainer extends Component  {
             this.setState({colorFondo:"white"})
     }
 
-    // BorrarTarjeta(idTarjeta) {
-    //     this.setState((prevState) => ({
-    //         items: prevState.items.filter(item => item.idTarjeta !== idTarjeta),
-    //       }))
+    // AgregarTarjeta(){ 
+    //     this.state.items.push({id: this.state.contador})
+    //     this.setState({contador: this.state.contador + 1, items: this.state.items[Math.floor(Math.random()*this.state.items.length)]})
     // }
+
+    BorrarTarjeta(idItem) {
+       console.log("Tarjeta a borrar:" + idItem);
+        let resultado = this.state.items.filter((item)=>{
+           return item.uuid !== idItem
+       })
+       this.setState({items: resultado});
+    }
 
     render(){
     return(
@@ -61,7 +69,7 @@ export default class ContactContainer extends Component  {
                 <button type="button" className="collapsible">Ver mas +</button>
                 <Colapsable className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
-                <Borrar />
+                <Borrar onDelete={this.BorrarTarjeta.bind(this)} key={this.props.uuid}/>
                 
             </div>
 
