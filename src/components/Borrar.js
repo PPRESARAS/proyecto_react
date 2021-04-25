@@ -28,6 +28,3 @@ constructor(props){
   }
 }
 
-// this.setState((prevState) => ({
-//     items: prevState.items.filter(item => item.idTarjeta !== idTarjeta),
-//   }))

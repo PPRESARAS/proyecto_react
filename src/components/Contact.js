@@ -40,10 +40,10 @@ export default class ContactContainer extends Component  {
 
     BorrarTarjeta(idItem) {
        console.log("Tarjeta a borrar:" + idItem);
-        let resultado = this.state.items.filter((item)=>{
+        let resultado = this.state.item.filter((item)=>{
            return item.uuid !== idItem
        })
-       this.setState({items: resultado});
+       this.setState({item: resultado});
     }
 
     render(){
