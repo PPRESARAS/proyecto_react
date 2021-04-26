@@ -14,6 +14,8 @@ export default class ContactContainer extends Component  {
             display: 'none',
             colorFondo: "white",
         }
+
+
     }
 
     componentDidMount(){ 
@@ -63,8 +65,7 @@ export default class ContactContainer extends Component  {
                 <button type="button" className="collapsible">Ver mas +</button>
                 <Colapsable className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
-                <Borrar onDelete={this.BorrarTarjeta.bind(this)} key={this.props.uuid}/>
-                
+                <Borrar onDelete={this.BorrarTarjeta.bind(this)}/>
             </div>
 
 

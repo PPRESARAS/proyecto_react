@@ -1,7 +1,5 @@
 import React from 'react';
 import {Component} from "react";
-import fs from "fs";
-import arrayPersonas from '../personas.json';
 import Contact from './Contact.js';
 import { disconnect } from 'process';
 
@@ -65,8 +63,8 @@ export default class ContactContainer extends Component  {
                         <option value="nombre">Nombre</option>
                     </select>
 
-                <input className="filtroData" name="filtroData"/>
-                <button logo="fas fa-filter" onClick={this.FiltrarTarjetas} className="botonFiltrar">Filtrar</button>
+                <input className="filtroData" name="filtroData" placeholder="Filtro..."/>
+                <button logo="fas fa-filter" onClick={this.FiltrarTarjetas} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             </div>
 
 
@@ -75,7 +73,7 @@ export default class ContactContainer extends Component  {
                             this.state.persona.map(function (persona){
                                 
                             return(
-                                <Contact  name={persona.name.first} surname={persona.name.last} image={persona.picture.large} email={persona.email} age={persona.dob.age} birthday={persona.dob.date}/> 
+                                <Contact name={persona.name.first} surname={persona.name.last} image={persona.picture.large} email={persona.email} age={persona.dob.age} birthday={persona.dob.date}/> 
                                 );
                             })
                         }
@@ -83,8 +81,8 @@ export default class ContactContainer extends Component  {
             </div>
             <div className="BotonAgregar" style={{textAlign: "center", padding:"20px"}}>
                 <h3>¿Desea agregar mas tarjetas?</h3>
-                <input className="cantidadAgregar" name="cantidad" />
-                <button logo="fas fa-filter" onClick={this.AgregarTarjetas}>Agregar Tarjetas</button>
+                <input className="cantidadAgregar" name="cantidad" type="number" min="1" max="15"/>
+                <button logo="fas fa-filter" onClick={this.AgregarTarjetas}>Agregar Tarjetas <i class="fas fa-user-plus"></i></button>
               
             </div>
         </React.Fragment>
