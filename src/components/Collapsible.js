@@ -1,7 +1,7 @@
 import React from 'react';
 import {Component} from "react";
 
-export default class Colapsable extends Component  {
+export default class Collapsible extends Component  {
 
     constructor(){
         super();

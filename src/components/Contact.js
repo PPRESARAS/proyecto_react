@@ -1,5 +1,5 @@
 import React from 'react';
-import Colapsable from './Colapsable.js';
+import Collapsible from './Collapsible.js';
 import Borrar from './Borrar.js';
 import {Component} from "react";
 import { getByDisplayValue } from '@testing-library/dom';
@@ -51,9 +51,7 @@ export default class ContactContainer extends Component  {
     render(){
     return(
         <React.Fragment>
-            <div className='tarjeta' style = {{ backgroundColor: this.state.colorFondo }} 
-            onMouseEnter = {this.MouseEnter.bind(this, "grey")} 
-            onMouseLeave = {this.MouseLeave.bind(this, "white")}>
+            <div className='tarjeta' style = {{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
 
             <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
             <li>Nombre: {this.props.name}</li>
@@ -63,7 +61,7 @@ export default class ContactContainer extends Component  {
             <li>(Edad: {this.props.age})</li>
             <div className='botones'> 
                 <button type="button" className="collapsible">Ver mas +</button>
-                <Colapsable className='content' style= {this.state.display} />
+                <Collapsible className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
                 <Borrar onDelete={this.BorrarTarjeta.bind(this)}/>
             </div>
