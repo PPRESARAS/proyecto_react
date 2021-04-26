@@ -24,12 +24,13 @@ export default class ContactContainer extends Component  {
      let cantidad = document.querySelector(".cantidadAgregar").value
      console.log(cantidad);
      
-    fetch("https://randomuser.me/api/?results=10" + cantidad)
+    fetch("https://randomuser.me/api/?results=" + cantidad)
         .then(resource => resource.json())
         .then(data=> {
-            let masData = this.state.items.push(data.results)
+            console.log(data)
+            let masData = this.state.persona.concat(data.results)
             this.setState({persona: masData});
-            console.log(masData)
+          
      })
     }
     
@@ -40,16 +41,16 @@ export default class ContactContainer extends Component  {
         console.log(filtrarPor)
 
         if (filtrarPor === "edad"){
-            let resultado = this.state.personas.filter( (persona) => {
+            let resultado = this.state.persona.filter( (persona) => {
                 return persona.dob.age === filtrarData;
             })
-            this.setState({personas: resultado});
+            this.setState({persona: resultado});
         }
         else if (filtrarPor === "nombre"){
-            let resultado = this.state.personas.filter( (persona) => {
+            let resultado = this.state.persona.filter( (persona) => {
                 return persona.name.first.includes(filtrarData);
             })
-            this.setState({personas: resultado})
+            this.setState({persona: resultado})
         }
     }
     
@@ -64,25 +65,26 @@ export default class ContactContainer extends Component  {
                     </select>
 
                 <input className="filtroData" name="filtroData" placeholder="Filtro..."/>
-                <button logo="fas fa-filter" onClick={this.FiltrarTarjetas} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
+                <button logo="fas fa-filter" onClick={this.FiltrarTarjetas.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             </div>
 
 
-            <div className="contenedorTarjetas">
+            <div className="contenedorTarjetas" >
                         {
-                            this.state.persona.map(function (persona){
+                            this.state.persona.map((persona) =>
                                 
-                            return(
-                                <Contact name={persona.name.first} surname={persona.name.last} image={persona.picture.large} email={persona.email} age={persona.dob.age} birthday={persona.dob.date}/> 
-                                );
-                            })
+                            (
+                            <Contact key={persona.login.uuid} name={persona.name.first} surname={persona.name.last} image={persona.picture.large} email={persona.email} age={persona.dob.age} birthday={persona.dob.date}/> 
+                            )
+                            
+                            )
                         }
                   
             </div>
             <div className="BotonAgregar" style={{textAlign: "center", padding:"20px"}}>
                 <h3>¿Desea agregar mas tarjetas?</h3>
-                <input className="cantidadAgregar" name="cantidad" type="number" min="1" max="15"/>
-                <button logo="fas fa-filter" onClick={this.AgregarTarjetas}>Agregar Tarjetas <i class="fas fa-user-plus"></i></button>
+                <input className="cantidadAgregar" name="cantidad" type="number" min="1" max="15" onChange={(event) => this.setState({numero: event.target.value})}></input>
+                <button onClick={this.AgregarTarjetas.bind(this)}>Agregar Tarjetas <i class="fas fa-user-plus"></i></button>
               
             </div>
         </React.Fragment>

@@ -27,7 +27,7 @@ export default class ContactContainer extends Component  {
         }) }
 
     AbrirColapsible(item){ 
-        this.state.items.push({})
+        this.state.item.push({})
     }
 
     MouseEnter = () => {
