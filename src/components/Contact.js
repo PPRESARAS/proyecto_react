@@ -1,6 +1,5 @@
 import React from 'react';
 import Collapsible from './Collapsible.js';
-import Borrar from './Borrar.js';
 import {Component} from "react";
 import { getByDisplayValue } from '@testing-library/dom';
 
@@ -40,30 +39,32 @@ export default class ContactContainer extends Component  {
             this.setState({colorFondo:"white"})
     }
 
-    BorrarTarjeta(idItem) {
-       console.log("Tarjeta a borrar:" + idItem);
+    BorrarTarjeta(item) {
+       console.log("Tarjeta a borrar:" + item);
         let resultado = this.state.item.filter((item)=>{
-           return item.uuid !== idItem
+           return item.login.uuid !== item
        })
        this.setState({item: resultado});
     }
 
     render(){
+        const item = this.state;
     return(
         <React.Fragment>
-            <div className='tarjeta' style = {{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
-
+            <div className='tarjeta'  style = {{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
+            
             <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
             <li>Nombre: {this.props.name}</li>
             <li>Apellido: {this.props.surname}</li>
             <li>Email:{this.props.email}</li>
             <li>Fecha de Nacimiento: {this.props.birthday}</li>
             <li>(Edad: {this.props.age})</li>
+        
             <div className='botones'> 
-                <button type="button" className="collapsible">Ver mas +</button>
+                <button type="button" className="collapsible"><i class="fas fa-plus"></i></button>
                 <Collapsible className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
-                <Borrar onDelete={this.BorrarTarjeta.bind(this)}/>
+                <button className="botonBorrar" onClick={this.BorrarTarjeta.bind(this, item.uuid)}><i class="fas fa-trash-alt"></i></button>
             </div>
 
 
