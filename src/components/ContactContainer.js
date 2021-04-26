@@ -83,7 +83,7 @@ export default class ContactContainer extends Component  {
             </div>
             <div className="BotonAgregar" style={{textAlign: "center", padding:"20px"}}>
                 <h3>¿Desea agregar mas tarjetas?</h3>
-                <input className="cantidadAgregar" name="cantidad" type="number" min="1" max="15" onChange={(event) => this.setState({numero: event.target.value})}></input>
+                <input className="cantidadAgregar" name="cantidad" type="number" min="1" max="50"></input>
                 <button onClick={this.AgregarTarjetas.bind(this)}>Agregar Tarjetas <i class="fas fa-user-plus"></i></button>
               
             </div>
