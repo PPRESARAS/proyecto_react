@@ -32,6 +32,7 @@ export default class ContactContainer extends Component  {
             console.log(data)
             let masData = this.state.persona.concat(data.results)
             this.setState({persona: masData});
+            
           
      })
     }

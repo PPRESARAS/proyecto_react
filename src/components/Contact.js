@@ -60,8 +60,7 @@ export default class ContactContainer extends Component  {
             <li>Fecha de Nacimiento: {this.props.birthday}</li>
             <li>(Edad: {this.props.age})</li>
         
-            <div className='botones'> 
-                <button type="button" className="collapsible"><i class="fas fa-plus"></i></button>
+            <div className='botones'>    
                 <Collapsible className='content' style= {this.state.display} />
                 <script src="./js/collapse.js"></script>   
                 <button className="botonBorrar" onClick={this.BorrarTarjeta.bind(this, item.uuid)}><i class="fas fa-trash-alt"></i></button>
