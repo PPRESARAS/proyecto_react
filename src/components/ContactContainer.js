@@ -13,7 +13,7 @@ export default class ContactContainer extends Component  {
             error: null,
             isLoaded: false,
             items: [],
-        }
+        };
     }
 
     componentDidMount() {
@@ -44,19 +44,6 @@ export default class ContactContainer extends Component  {
           
       }
     
-    AgregarTarjetas(){ 
-     let cantidad = document.querySelector(".cantidadAgregar").value
-     console.log(cantidad);
-     
-    fetch("https://randomuser.me/api/?results=" + cantidad)
-        .then(resource => resource.json())
-        .then(data=> {
-            console.log(data)
-            let masData = this.state.items.concat(data.results)
-            this.setState({items: masData});     
-     })
-    }
-    
     FiltrarTarjetasNombre(){
         let filtrarNombre = document.querySelector(".filtroNombre")
         console.log(filtrarNombre);
@@ -70,7 +57,7 @@ export default class ContactContainer extends Component  {
     })}
     
     FiltrarTarjetasEdad(){         
-        let filtrarEdad = document.querySelector(".filtrarEdad")
+        let filtrarEdad = document.querySelector(".filtroEdad")
             console.log(filtrarEdad);
             
         fetch("https://randomuser.me/api/?inc=age="+ this.state.age) 
@@ -82,17 +69,29 @@ export default class ContactContainer extends Component  {
     })}
         
     OrdenarAscendente(){
-        this.setState(prevState => {
+        this.setState(event => {
           this.state.items.name.sort((a,b) => (a.name - b.name))
         });
       }
     
     OrdenarDescendente(){
-        this.setState(prevState => {
+        this.setState(event => {
           this.state.items.name.sort((a,b) => (b.name - a.name))
         });
       }
     
+    AgregarTarjetas(){ 
+      let cantidad = document.querySelector(".cantidadAgregar").value
+      console.log(cantidad);
+  
+      fetch("https://randomuser.me/api/?results=" + cantidad)
+         .then(resource => resource.json())
+         .then(data=> {
+             console.log(data)
+             let masData = this.state.items.concat(data.results)
+             this.setState({items: masData});     
+        })
+       }
     
     render(){
         const { error, isLoaded, items } = this.state;
@@ -106,23 +105,23 @@ export default class ContactContainer extends Component  {
             <div className="BotonFiltrar" style={{textAlign: "center", padding:"20px"}}>
                 <h4 className="Filtro"> FILTRAR POR: </h4>
                         <option value="nombre">NOMBRE</option>
-                <input className="filtroData" name="filtroNombre" type="text" placeholder="Nombre..." onChange={(event) => this.setState({nombre: event.target.value})}/>
+                <input className="filtroData" name="filtroNombre" type="text" placeholder="Nombre..." onChange={(event) => this.setState({name: event.target.value})}/>
                 <button logo="fas fa-filter" onClick={this.FiltrarTarjetasNombre.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
 
                 <option value="nombre">EDAD</option>
-                <input className="filtroData" name="filtroEdad" type="number" min="1" max="99" placeholder="Edad..." onChange={(event) => this.setState({nombre: event.target.value})}/>
+                <input className="filtroData" name="filtroEdad" type="number" min="1" max="99" placeholder="Edad..." onChange={(event) => this.setState({age: event.target.value})}/>
                 <button logo="fas fa-filter" onClick={this.FiltrarTarjetasEdad.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             
 
             </div>
             <div  style={{textAlign: "center", padding:"20px"}}> Ordenar por: 
-                    <button className="orden" onClick={this.OrdenarAscendente}> Ascendente </button>
-                    <button className="orden" onClick={this.OrdenarDescendente}> Descendente </button>
+                    <button className="orden" onClick={this.OrdenarAscendente.bind(this)}> Ascendente </button>
+                    <button className="orden" onClick={this.OrdenarDescendente.bind(this)}> Descendente </button>
             </div>
 
 
             <div className="contenedorTarjetas" >
-            {this.state.items.map(items => (
+            {items.map(items => (
                             <Contact  name={items.name.first} surname={items.name.last} image={items.picture.large} email={items.email} age={items.dob.age} birthday={items.dob.date}/> 
                             ))}
             </div>
