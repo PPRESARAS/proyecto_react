@@ -11,7 +11,6 @@ export default class Collapsible extends Component  {
             error: null,
             isLoaded: false,
             items: []
-
         }
     }
     componentDidMount() {
