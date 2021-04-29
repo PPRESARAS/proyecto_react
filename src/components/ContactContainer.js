@@ -51,14 +51,14 @@ export default class ContactContainer extends Component  {
       )
     }
     
-    MouseEnter = () => {
-      if(this.state.colorFondo==="white")
-          this.setState({colorFondo:"lightblue"})
+  MouseEnter = () => {
+    if(this.state.colorFondo==="white")
+      this.setState({colorFondo:"lightblue"})
   }
 
   MouseLeave = () => {
-      if(this.state.colorFondo==="lightblue")
-          this.setState({colorFondo:"white"})
+    if(this.state.colorFondo==="lightblue")
+      this.setState({colorFondo:"white"})
   }
 
   FiltrarTarjetasNombre(){
@@ -68,13 +68,13 @@ export default class ContactContainer extends Component  {
         let name = search.name.first.toUpperCase()
         let lastname = search.name.last.toUpperCase()
         let age = search.dob.age.toString()
-        
-        
+
       return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
       })
-    console.log(filtrado)
+      console.log(filtrado)
       this.setState({items: filtrado})
   }
+
   FiltrarTarjetasApellido(){
     let filtro = document.querySelector(".filtroApellido").value.toUpperCase()
     console.log(filtro)
@@ -82,13 +82,13 @@ export default class ContactContainer extends Component  {
         let name = search.name.first.toUpperCase()
         let lastname = search.name.last.toUpperCase()
         let age = search.dob.age.toString()
-        
-        
+      
       return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
       })
-    console.log(filtrado)
+      console.log(filtrado)
       this.setState({items: filtrado})
   }
+
   FiltrarTarjetasEdad(){
     let filtro = document.querySelector(".filtroEdad").value.toUpperCase()
     console.log(filtro)
@@ -97,51 +97,50 @@ export default class ContactContainer extends Component  {
         let lastname = search.name.last.toUpperCase()
         let age = search.dob.age.toString()
         
-        
       return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
       })
-    console.log(filtrado)
+      console.log(filtrado)
       this.setState({items: filtrado})
   }
 
-    ResetFiltro(){
-      this.setState({items: this.state.itemsNuevo})
-    }
+  ResetFiltro(){
+    this.setState({items: this.state.itemsNuevo})
+  }
         
-    OrdenarAscendente(){
-        this.setState(event => {
-          this.state.items.sort((a,b) => (a.name - b.name))
-        });
-      }
+  OrdenarAscendente(){
+    this.setState(event => {
+      this.state.items.sort((a,b) => (a.name - b.name))
+    });
+  }
     
-    OrdenarDescendente(){
-        this.setState(event => {
-          this.state.items.sort((a,b) => (b.name - a.name))
-        });
-      }
+  OrdenarDescendente(){
+    this.setState(event => {
+      this.state.items.sort((a,b) => (b.name - a.name))
+    });
+  }
     
-    AgregarTarjetas(){ 
-      let cantidad = document.querySelector(".cantidadAgregar").value
+  AgregarTarjetas(){ 
+    let cantidad = document.querySelector(".cantidadAgregar").value
       console.log(cantidad);
   
-      fetch("https://randomuser.me/api/?results=" + cantidad)
-         .then(resource => resource.json())
-         .then(data=> {
-             console.log(data)
-             let masData = this.state.items.concat(data.results)
+    fetch("https://randomuser.me/api/?results=" + cantidad)
+      .then(resource => resource.json())
+      .then(data=> {
+        console.log(data)
+          let masData = this.state.items.concat(data.results)
              this.setState({items: masData});     
-        })
-       }
+      })
+  }
 
-    BorrarTarjeta(idCard){
-        console.log(idCard);
-        let persona = this.state.items.filter((item)=>{
-         return item.id !== idCard
-       })
-       this.setState({items: persona})
-      }
+  BorrarTarjeta(idCard){
+    console.log(idCard);
+    let persona = this.state.items.filter((item)=>{
+      return item.id !== idCard
+    })
+    this.setState({items: persona})
+  }
     
-    render(){
+  render(){
         const { error, isLoaded } = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
