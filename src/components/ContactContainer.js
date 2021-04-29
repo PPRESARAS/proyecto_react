@@ -9,8 +9,6 @@ export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
         this.title = React.createRef()
-        this.OrdenarAscendente = this.OrdenarAscendente.bind(this);
-        this.OrdenarDescendente = this.OrdenarDescendente.bind(this);
         this.state = {
             error: null,
             isLoaded: false,
@@ -107,17 +105,11 @@ export default class ContactContainer extends Component  {
   ResetFiltro(){
     this.setState({items: this.state.itemsNuevo})
   }
-        
-  OrdenarAscendente(){
-    this.setState(event => {
-      this.state.items.sort((a,b) => (a.name - b.name))
-    });
-  }
-    
-  OrdenarDescendente(){
-    this.setState(event => {
-      this.state.items.sort((a,b) => (b.name - a.name))
-    });
+          
+  InvertirLista(){
+    const {items} = this.state;
+    items.sort((a,b) => b - a).reverse()
+    this.setState({items})
   }
     
   AgregarTarjetas(){ 
@@ -142,7 +134,7 @@ export default class ContactContainer extends Component  {
   }
     
   render(){
-        const { error, isLoaded } = this.state;
+        const { error, isLoaded, items} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -165,10 +157,7 @@ export default class ContactContainer extends Component  {
             <br></br><br></br>
               <button className="resetFiltro" onClick={this.ResetFiltro.bind(this)} >RESETEAR  FILTRO</button>
             <br></br><br></br>
-            <a> Ordenar por: 
-              <button className="orden" onClick={this.OrdenarAscendente.bind(this)}> Ascendente </button>
-              <button className="orden" onClick={this.OrdenarDescendente.bind(this)}> Descendente </button>
-            </a>
+              <button className="orden" onClick={this.InvertirLista.bind(this)}> INVERTIR LISTA </button>
           </div>
 
             <div className="contenedorTarjetas" >

@@ -75,7 +75,8 @@ html, body {
 }
 .contenedorFiltros{
   height: 230px;
-
+  align-items: center;
+  text-align: center;
 }
 
 .friends{
@@ -260,9 +261,6 @@ i.fas.fa-plus::before{
   margin-top: 1%;
 }
 
-.resetFiltro{
-  margin-left: 5%;
-}
 
 
 /* .botonFiltrar{
