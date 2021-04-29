@@ -57,14 +57,6 @@ export default class ContactContainer extends Component  {
             this.setState({colorFondo:"white"})
     }
 
-    BorrarTarjeta(idItem) {
-       console.log("Tarjeta a borrar:" + idItem);
-        let resultado = this.state.items.filter((items)=>{
-           return items.id !== items
-       })
-       this.setState({items: resultado});
-    }
-
     render(){
         const { error, isLoaded, items } = this.state;
         if (error) {
@@ -73,28 +65,22 @@ export default class ContactContainer extends Component  {
           return <div>Cargando...</div>;
         } else { 
     return(
-        <React.Fragment>
-            <div className='tarjeta'  style={{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")} key={items.id}>
+            <div className='tarjeta'  style={{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
         
-            <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
-            <li>Nombre: {this.props.name}</li>
-            <li>Apellido: {this.props.surname}</li>
-            <li>Email:{this.props.email}</li>
-            <li>Fecha de Nacimiento: {this.props.birthday}</li>
-            <li>(Edad: {this.props.age})</li>
-        
-            <div className='botones'>    
-                <Collapsible className='content' style= {this.state.display} />
-                <script src="./js/collapse.js"></script>   
-                <button className="botonBorrar" onClick={this.BorrarTarjeta.bind(this, items.id)}><i class="fas fa-trash-alt"></i></button>
-            </div>
+              <li>id:{this.props.id}</li>
+              <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
+              <li>Nombre: {this.props.name}</li>
+              <li>Apellido: {this.props.surname}</li>
+              <li>Email:{this.props.email}</li>
+              <li>Fecha de Nacimiento: {this.props.birthday}</li>
+              <li>(Edad: {this.props.age})</li>
+          
+              <div className='botones'>    
+                  <Collapsible className='content' style= {this.state.display} />
+                  <button className="botonBorrar" onClick={this.props.onDelete.bind(this, this.props.id)}><i class="fas fa-trash-alt"></i></button>
+              </div>
 
-
-
-            
-            </div>
-        
-        </React.Fragment>
+            </div> 
     )}
 }
 

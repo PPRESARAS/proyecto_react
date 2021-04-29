@@ -92,6 +92,14 @@ export default class ContactContainer extends Component  {
              this.setState({items: masData});     
         })
        }
+
+       BorrarTarjeta(idItem) {
+        console.log("Tarjeta a borrar:" + idItem);
+         let resultado = this.state.items.filter((items)=>{
+            return items.id !== idItem
+        })
+        this.setState({items: resultado});
+     }
     
     render(){
         const { error, isLoaded, items } = this.state;
@@ -121,9 +129,12 @@ export default class ContactContainer extends Component  {
 
 
             <div className="contenedorTarjetas" >
-            {items.map(items => (
-                            <Contact  name={items.name.first} surname={items.name.last} image={items.picture.large} email={items.email} age={items.dob.age} birthday={items.dob.date}/> 
-                            ))}
+              {this.state.items.map((items, idx) => { 
+                              return (
+                              <Contact key={idx} onDelete={this.BorrarTarjeta.bind(this)} id={items.id} name={items.name.first} surname={items.name.last} image={items.picture.large} email={items.email} age={items.dob.age} birthday={items.dob.date}/> 
+                              )
+                            })
+              }
             </div>
             <div className="BotonAgregar" style={{textAlign: "center", padding:"20px"}}>
                 <h3>¿Desea agregar mas tarjetas?</h3>
