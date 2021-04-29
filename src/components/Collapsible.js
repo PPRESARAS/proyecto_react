@@ -50,7 +50,7 @@ export default class Collapsible extends Component  {
     } else {
         return(
         <div  >
-        <button type="button" className="collapsible" onClick={this.desplegarInfo}><i class="fas fa-plus"></i></button>
+        <button type="button" className="collapsible" onClick={this.desplegarInfo}>Ver mas<i class="fas fa-plus"></i></button>
         {items.map(item => (
         <div className="content" ref={this.title} style={{display:'none'}}>
                 <div><span className="collapsibleLi">Calle y Número: </span>{item.location.street.name  + ', ' + item.location.street.number}</div>

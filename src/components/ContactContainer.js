@@ -4,6 +4,7 @@ import Contact from './Contact.js';
 import Collapsible from './Collapsible.js';
 import { disconnect } from 'process';
 
+
 export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
@@ -24,7 +25,7 @@ export default class ContactContainer extends Component  {
     }
 
     componentDidMount(){ 
-      fetch("https://randomuser.me/api/?results=10")
+      fetch("https://randomuser.me/api/?results=11")
       .then(res => res.json())
       .then(
         (data) => {
@@ -149,7 +150,8 @@ export default class ContactContainer extends Component  {
     } else {
         return(
         <React.Fragment>
-          <div style={{textAlign: "center", alignItems:"center"}}>
+
+          <div className="contenedorFiltros" style={{textAlign: "center", alignItems:"center"}}>
           <h4 className="Filtro"> FILTRAR POR: </h4>
             
             <a>NOMBRE: {this.state.name} </a>

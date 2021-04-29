@@ -6,7 +6,7 @@ function Header() {
 
             <div className="topnavLeft">
                 <a className='logolink' href="index.html"><img src="./images/logo.png" alt='logo' className="logo" /></a>
-                <h1 className='titulo'>Tus amigos:</h1>
+                <h1 className='titulo'>TUS AMIGOS</h1>
             </div>
         
         </header>

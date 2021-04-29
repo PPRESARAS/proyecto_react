@@ -64,6 +64,7 @@ if (error) {
   return(
       <React.Fragment>
             <div className='tarjeta'  style={{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
+            <button className="botonBorrar" onClick={this.props.onDelete.bind(this, this.props.id)}><i class="fas fa-trash-alt"></i></button>
               <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
               <li>Nombre: {this.props.name}</li>
               <li>Apellido: {this.props.surname}</li>
@@ -72,9 +73,7 @@ if (error) {
               <li>(Edad: {this.props.age})</li>
               
               <div className='botones'>    
-                <Collapsible className='content' style= {this.state.display} />
-                <script src="./js/collapse.js"></script>   
-                <button className="botonBorrar" onClick={this.props.onDelete.bind(this, this.props.id)}><i class="fas fa-trash-alt"></i></button>
+                <Collapsible className='content' style= {this.state.display} />  
               </div>
             </div>
         
