@@ -23,7 +23,7 @@ export default class ContactContainer extends Component  {
     }
 
     componentDidMount(){ 
-      fetch("https://randomuser.me/api/?results=11")
+      fetch("https://randomuser.me/api/?results=12")
       .then(res => res.json())
       .then(
         (data) => {
