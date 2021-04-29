@@ -65,10 +65,8 @@ export default class ContactContainer extends Component  {
     console.log(filtro)
     let filtrado = this.state.items.filter((search)=>{
         let name = search.name.first.toUpperCase()
-        let lastname = search.name.last.toUpperCase()
-        let age = search.dob.age.toString()
 
-      return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
+      return name.startsWith(filtro) 
       })
       console.log(filtrado)
       this.setState({items: filtrado})
@@ -78,11 +76,9 @@ export default class ContactContainer extends Component  {
     let filtro = document.querySelector(".filtroApellido").value.toUpperCase()
     console.log(filtro)
     let filtrado = this.state.items.filter((search)=>{
-        let name = search.name.first.toUpperCase()
         let lastname = search.name.last.toUpperCase()
-        let age = search.dob.age.toString()
       
-      return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
+      return  lastname.startsWith(filtro)  
       })
       console.log(filtrado)
       this.setState({items: filtrado})
@@ -92,11 +88,9 @@ export default class ContactContainer extends Component  {
     let filtro = document.querySelector(".filtroEdad").value.toUpperCase()
     console.log(filtro)
     let filtrado = this.state.items.filter((search)=>{
-        let name = search.name.first.toUpperCase()
-        let lastname = search.name.last.toUpperCase()
         let age = search.dob.age.toString()
         
-      return name.startsWith(filtro) || lastname.startsWith(filtro) ||  age.includes(filtro) //buscar si incluye el numero y pasar todo a tring y poner con el metodo include()
+      return  age.includes(filtro) 
       })
       console.log(filtrado)
       this.setState({items: filtrado})
@@ -143,16 +137,16 @@ export default class ContactContainer extends Component  {
         return(
         <React.Fragment>
 
-          <div className="contenedorFiltros" style={{textAlign: "center", alignItems:"center"}}>
+          <div className="contenedorFiltros" >
           <h4 className="Filtro"> FILTRAR POR: </h4>
             
-            <a>NOMBRE: {this.state.name} </a>
+            <a>NOMBRE:</a>
               <input className="filtroNombre" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasNombre.bind(this)}/>
             <br></br><br></br>
-            <a>APELLIDO: {this.state.name} </a>
+            <a>APELLIDO: </a>
               <input className="filtroApellido" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasApellido.bind(this)}/>
             <br></br><br></br>
-            <a >EDAD: {this.state.age} </a>
+            <a >EDAD:  </a>
               <input className="filtroEdad" name="filtroEdad" type="number" min="1" max="99"  onChange={this.FiltrarTarjetasEdad.bind(this)}/>
             <br></br><br></br>
               <button className="resetFiltro" onClick={this.ResetFiltro.bind(this)} >RESETEAR  FILTRO</button>
