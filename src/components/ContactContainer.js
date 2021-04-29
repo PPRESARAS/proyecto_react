@@ -170,15 +170,15 @@ export default class ContactContainer extends Component  {
           <h4 className="Filtro"> FILTRAR POR: </h4>
             
             <a>NOMBRE: {this.state.name} </a>
-              <input className="filtroNombre" name="filtroNombre" type="text" placeholder="Nombre..." onChange={this.FiltrarTarjetasNombre.bind(this)}/>
+              <input className="filtroNombre" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasNombre.bind(this)}/>
               <button logo="fas fa-filter" onClick={this.FiltrarTarjetasNombre.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             <br></br><br></br>
             <a>APELLIDO: {this.state.name} </a>
-              <input className="filtroApellido" name="filtroNombre" type="text" placeholder="Apellido..." onChange={this.FiltrarTarjetasApellido.bind(this)}/>
+              <input className="filtroApellido" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasApellido.bind(this)}/>
               <button logo="fas fa-filter" onClick={this.FiltrarTarjetasApellido.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             <br></br><br></br>
             <a >EDAD: {this.state.age} </a>
-              <input className="filtroEdad" name="filtroEdad" type="number" min="1" max="99" placeholder="Edad..." onChange={this.FiltrarTarjetasEdad.bind(this)}/>
+              <input className="filtroEdad" name="filtroEdad" type="number" min="1" max="99"  onChange={this.FiltrarTarjetasEdad.bind(this)}/>
               <button logo="fas fa-filter" onClick={this.FiltrarTarjetasEdad.bind(this)} className="botonFiltrar">Filtrar <i class="fas fa-filter"></i></button>
             <br></br><br></br>
               <button className="resetFiltro" onClick={this.ResetFiltro.bind(this)} >RESETEAR  FILTRO</button>
