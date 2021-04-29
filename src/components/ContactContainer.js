@@ -25,10 +25,8 @@ export default class ContactContainer extends Component  {
 
     componentDidMount(){ 
       fetch("https://randomuser.me/api/?results=10")
-      .then(res => res.json())
-      .then(
-        (data) => {
-            console.log(data)
+      .then((res) => res.json())
+      .then((data) => {
             var resultadosBusqueda = data.results.length
 
             for (var i = 0; i < resultadosBusqueda.length; i++) {
@@ -157,7 +155,7 @@ export default class ContactContainer extends Component  {
         })
        }
 
-       BorrarTarjeta(idItem) {
+    BorrarTarjeta(idItem) {
         console.log("Tarjeta a borrar:" + idItem);
          let resultado = this.state.items.filter((items)=>{
             return items.id !== idItem
