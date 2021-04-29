@@ -9,6 +9,7 @@ export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
         this.title = React.createRef()
+        this.desplegarInfo = this.desplegarInfo.bind(this)
         this.state = {
             error: null,
             isLoaded: false,
@@ -126,7 +127,15 @@ export default class ContactContainer extends Component  {
     })
     this.setState({items: persona})
   }
-    
+  
+  desplegarInfo(){
+    console.log(this.title)
+    if(this.title.current.style.display === "none"){
+        this.title.current.style.display = "block";
+    } else{
+        this.title.current.style.display = "none";
+    }
+  }
   render(){
         const { error, isLoaded, items} = this.state;
     if (error) {
@@ -138,20 +147,30 @@ export default class ContactContainer extends Component  {
         <React.Fragment>
 
           <div className="contenedorFiltros" >
-          <h4 className="Filtro"> FILTRAR POR: </h4>
-            
-            <a>NOMBRE:</a>
-              <input className="filtroNombre" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasNombre.bind(this)}/>
-            <br></br><br></br>
-            <a>APELLIDO: </a>
-              <input className="filtroApellido" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasApellido.bind(this)}/>
-            <br></br><br></br>
-            <a >EDAD:  </a>
-              <input className="filtroEdad" name="filtroEdad" type="number" min="1" max="99"  onChange={this.FiltrarTarjetasEdad.bind(this)}/>
-            <br></br><br></br>
-              <button className="resetFiltro" onClick={this.ResetFiltro.bind(this)} >RESETEAR  FILTRO</button>
-            <br></br><br></br>
-              <button className="orden" onClick={this.InvertirLista.bind(this)}> INVERTIR LISTA </button>
+          {/* <div className='tituloboton'> */}
+          <h2 className='filtrostitulo'>Ordenar por filtros</h2>
+          <button   className='botonfiltro' onClick={this.desplegarInfo}><i class="fas fa-filter"></i></button>
+          {items.map(item => (
+      
+          
+            <div className="filtros" ref={this.title} style={{display:'none'}}>
+              
+              <h4 className="Filtro"> FILTRAR POR: </h4>
+                
+                <a>NOMBRE:</a>
+                  <input className="filtroNombre" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasNombre.bind(this)}/>
+                <br></br><br></br>
+                <a>APELLIDO: </a>
+                  <input className="filtroApellido" name="filtroNombre" type="text"  onChange={this.FiltrarTarjetasApellido.bind(this)}/>
+                <br></br><br></br>
+                <a >EDAD:  </a>
+                  <input className="filtroEdad" name="filtroEdad" type="number" min="1" max="99"  onChange={this.FiltrarTarjetasEdad.bind(this)}/>
+                <br></br><br></br>
+                  <button className="resetFiltro" onClick={this.ResetFiltro.bind(this)} >RESETEAR  FILTRO</button>
+                <br></br><br></br>
+                  <button className="orden" onClick={this.InvertirLista.bind(this)}> INVERTIR LISTA </button>
+            </div>
+          ))}
           </div>
 
             <div className="contenedorTarjetas" >

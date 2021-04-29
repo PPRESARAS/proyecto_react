@@ -5,8 +5,8 @@ function Header() {
         <header className='header'>
 
             <div className="topnavLeft">
-                <a className='logolink' href="index.html"><img src="./images/logo.png" alt='logo' className="logo" /></a>
-                <h1 className='titulo'>TUS AMIGOS</h1>
+                <a className='logolink' href="https://udesa.edu.ar/"><img src="./images/logo-bottom.png" alt='logo' className="logo" /></a>
+                <h1 className='titulo'>Alumnos Posgrado</h1>
             </div>
         
         </header>
