@@ -147,11 +147,10 @@ export default class ContactContainer extends Component  {
         <React.Fragment>
 
           <div className="contenedorFiltros" >
-          {/* <div className='tituloboton'> */}
+          <div className='tituloboton'>
           <h2 className='filtrostitulo'>Ordenar por filtros</h2>
           <button   className='botonfiltro' onClick={this.desplegarInfo}><i class="fas fa-filter"></i></button>
-          {items.map(item => (
-      
+          </div>
           
             <div className="filtros" ref={this.title} style={{display:'none'}}>
               
@@ -170,7 +169,6 @@ export default class ContactContainer extends Component  {
                 <br></br><br></br>
                   <button className="orden" onClick={this.InvertirLista.bind(this)}> INVERTIR LISTA </button>
             </div>
-          ))}
           </div>
 
             <div className="contenedorTarjetas" >
