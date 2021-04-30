@@ -59,13 +59,6 @@ export default class Collapsible extends Component  {
                 <div><span className="collapsibleLi">Código postal: </span>{item.location.postcode}</div>
                 <div><span className="collapsibleLi">Fecha de Registro: </span>{item.registered.date}</div>
                 <div><span className="collapsibleLi">Teléfono: </span>{item.phone}</div>
-                
-                
-               
-                
-                
-             
-           
         </div>
           ))}
         </div>) 

@@ -1,15 +1,12 @@
 import React from 'react';
 import {Component} from "react";
 import Contact from './Contact.js';
-import Collapsible from './Collapsible.js';
-import { disconnect } from 'process';
 
 
 export default class ContactContainer extends Component  {
     constructor(props){
         super(props);
         this.title = React.createRef()
-        this.desplegarInfo = this.desplegarInfo.bind(this)
         this.state = {
             error: null,
             isLoaded: false,
@@ -17,10 +14,7 @@ export default class ContactContainer extends Component  {
             itemsNuevo: [],
             display: 'none',
             colorFondo: "white",
-            name: "",
-            age: "",
         };
-
     }
 
     componentDidMount(){ 
@@ -39,7 +33,6 @@ export default class ContactContainer extends Component  {
             items: data.results,
             itemsNuevo: data.results,
           });
-          
         },
         
         (error) => {
@@ -50,16 +43,6 @@ export default class ContactContainer extends Component  {
         }
       )
     }
-    
-  MouseEnter = () => {
-    if(this.state.colorFondo==="white")
-      this.setState({colorFondo:"lightblue"})
-  }
-
-  MouseLeave = () => {
-    if(this.state.colorFondo==="lightblue")
-      this.setState({colorFondo:"white"})
-  }
 
   FiltrarTarjetasNombre(){
     let filtro = document.querySelector(".filtroNombre").value.toUpperCase()
@@ -91,7 +74,7 @@ export default class ContactContainer extends Component  {
     let filtrado = this.state.items.filter((search)=>{
         let age = search.dob.age.toString()
         
-      return  age.includes(filtro) 
+      return  age.startsWith(filtro) 
       })
       console.log(filtrado)
       this.setState({items: filtrado})
@@ -103,7 +86,7 @@ export default class ContactContainer extends Component  {
           
   InvertirLista(){
     const {items} = this.state;
-    items.sort((a,b) => b - a).reverse()
+    items.sort((a,b) => a - b).reverse()
     this.setState({items})
   }
     
@@ -121,7 +104,6 @@ export default class ContactContainer extends Component  {
   }
 
   BorrarTarjeta(idCard){
-    console.log(idCard);
     let persona = this.state.items.filter((item)=>{
       return item.id !== idCard
     })
@@ -129,15 +111,15 @@ export default class ContactContainer extends Component  {
   }
   
   desplegarInfo(){
-    console.log(this.title)
     if(this.title.current.style.display === "none"){
         this.title.current.style.display = "block";
     } else{
         this.title.current.style.display = "none";
     }
   }
+
   render(){
-        const { error, isLoaded, items} = this.state;
+        const { error, isLoaded} = this.state;
     if (error) {
       return <div>Error: {error.message}</div>;
     } else if (!isLoaded) {
@@ -149,7 +131,7 @@ export default class ContactContainer extends Component  {
           <div className="contenedorFiltros" >
           <div className='tituloboton'>
           <h2 className='filtrostitulo'>Ordenar por filtros</h2>
-          <button   className='botonfiltro' onClick={this.desplegarInfo}><i class="fas fa-filter"></i></button>
+          <button   className='botonfiltro' onClick={this.desplegarInfo.bind(this)}><i class="fas fa-filter"></i></button>
           </div>
           
             <div className="filtros" ref={this.title} style={{display:'none'}}>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Collapsible from './Collapsible.js';
 import {Component} from "react";
-import { getByDisplayValue } from '@testing-library/dom';
 
 
 export default class ContactContainer extends Component  {
@@ -18,7 +17,7 @@ export default class ContactContainer extends Component  {
     }
 
   componentDidMount(){ 
-    fetch("https://randomuser.me/api/?results=10")
+    fetch("https://randomuser.me/api/?results=1")
       .then(res => res.json())
       .then(
         (data) => {
@@ -55,7 +54,7 @@ export default class ContactContainer extends Component  {
 
 
 render(){
-  const { error, isLoaded, items } = this.state;
+  const { error, isLoaded } = this.state;
 if (error) {
   return <div>Error: {error.message}</div>
 } else if (!isLoaded) {
@@ -63,7 +62,7 @@ if (error) {
 } else { 
   return(
       <React.Fragment>
-            <div className='tarjeta'  style={{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "grey")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
+            <div className='tarjeta'  style={{ backgroundColor: this.state.colorFondo }} onMouseEnter = {this.MouseEnter.bind(this, "lightblue")} onMouseLeave = {this.MouseLeave.bind(this, "white")}>
             <button className="botonBorrar" onClick={this.props.onDelete.bind(this, this.props.id)}><i class="fas fa-trash-alt"></i></button>
               <li className="profile"><img src={this.props.image} alt='profile' className="profilefoto"/></li>
               <li>Nombre: {this.props.name}</li>
